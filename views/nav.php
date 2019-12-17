@@ -1,8 +1,11 @@
+<?php
+include 'views/header.php';
+?>
 <body>
-
-
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">photoblog</a>
+    <a class="navbar-brand" href="index.php">photoblog</a>
+    <a class="text-primary" href="create.php"><ion-icon size="large" name="add-circle"></ion-icon></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,3 +31,4 @@
         </form>
     </div>
 </nav>
+<hr>
