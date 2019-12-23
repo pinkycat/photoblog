@@ -3,7 +3,7 @@
  error_reporting(E_ALL);
 
 
- function debug() {
+function debug() {
      echo '<pre>';
      var_dump($str);
      echo '</pre>';

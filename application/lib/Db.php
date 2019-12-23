@@ -1,5 +1,6 @@
 <?php
 
+namespace application\lib;
 
 class Db
 {

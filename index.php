@@ -2,10 +2,30 @@
 
 require 'application/lib/Dev.php';
 
+use application\core\Router;
+
+
+spl_autoload_register(function ($class) {
+    $path = str_replace('\\', '/', $class.'.php');
+
+    if (file_exists($path)) {
+        require $path;
+    }
+});
+
+session_start();
+
+$router = new Router;
+$router->run();
+
+
+
 header('Content-type: text/html; charset=utf-8');
 
 include 'views/header.php';
 include 'views/nav.php';
+
+
 
 $router = new Router;
 
@@ -14,34 +34,9 @@ $statement = $pdo->prepare("SELECT * FROM posts");
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-include "views/index.show.php";
+//include "views/index.show.php";
 
 ?>
-
-
-<?php
-$start = 20;
-$end = 50;
-$sum = 0;
-for($i = $start; $i <= $end; $i++) {
-    if(fmod($i, 3) == 0) {
-        $sum += $i;
-    }
-}
-echo $sum;
-
-?>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <footer class="container-fluid bg-dark ">
