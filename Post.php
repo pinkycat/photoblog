@@ -11,14 +11,15 @@ function uploadImage($image) //функция загружает картинк�
     return $filename;
 }
 
-function addPost($title, $content, $filename)
+function addPost($title, $genre, $filename)
 {
 
-    $pdo = new PDO("mysql:host=localhost;dbname=photoblog", "root", "1111");
-    $sql = "INSERT INTO posts (title, content, image) VALUES (:title, :content, :image)";
+    $pdo = new PDO("mysql:host=localhost;dbname=photoblogtest", "root", "1111", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+
+    $sql = "INSERT INTO posts (title, genre, image) VALUES (:title, :genre, :image)";
     $statement = $pdo->prepare($sql);
     $statement->bindParam(":title", $title);
-    $statement->bindParam(":content", $content);
+    $statement->bindParam(":genre", $genre);
     $statement->bindParam(":image", $filename);
     $statement->execute();
 
